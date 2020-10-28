@@ -62,3 +62,9 @@ services:
       # This directory must have cert files if you want to enable SSL
       - ./volumes/web/cert:/cert:ro
       - /etc/localtime:/etc/localtime:ro
+  
+   certbot:
+    image: certbot/certbot
+    volumes:
+    - ./volumes/certbot/conf:/etc/letsencrypt
+    - ./volumes/web/cert:/var/www/certbot
