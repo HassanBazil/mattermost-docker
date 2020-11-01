@@ -36,4 +36,8 @@ server {
         proxy_read_timeout 600s;
         proxy_pass http://{%APP_HOST%}:{%APP_PORT%};
     }
+    
+    location /.well-known/acme-challenge/ {
+        root /cert ;
+    }
 }
