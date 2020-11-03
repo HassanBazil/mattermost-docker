@@ -65,6 +65,7 @@ services:
   
    certbot:
     image: certbot/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     volumes:
     - ./volumes/certbot/conf:/etc/letsencrypt
     - ./volumes/web/cert:/var/www/certbot
