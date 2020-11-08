@@ -20,5 +20,7 @@ ln -s -f /etc/nginx/sites-available/mattermost$ssl /etc/nginx/conf.d/mattermost.
 sed -i "s/{%APP_HOST%}/${APP_HOST}/g" /etc/nginx/conf.d/mattermost.conf
 sed -i "s/{%APP_PORT%}/${APP_PORT_NUMBER}/g" /etc/nginx/conf.d/mattermost.conf
 
+sed -i "s/{%DOMAINNAME%}/${DOMAINNAME}/g" /etc/nginx/conf.d/mattermost-ssl.conf
+
 # Run Nginx
 exec nginx -g 'daemon off;'
