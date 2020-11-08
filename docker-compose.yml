@@ -59,7 +59,7 @@ services:
     read_only: true
     restart: unless-stopped
     environment:
-      - DOMAINNAME = ${domain}
+      - DOMAINNAME=${domain}
     volumes:
       # This directory must have cert files if you want to enable SSL
       - ./volumes/web/cert:/cert:ro
