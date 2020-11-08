@@ -5,7 +5,7 @@ APP_HOST=${APP_HOST:-app}
 APP_PORT_NUMBER=${APP_PORT_NUMBER:-8000}
 
 # Check if SSL should be enabled (if certificates exists)
-if [ -f "/certbotcert/fullchain.pem" -a -f "/certbotcert/privkey.pem" ]; then
+if [ -f "/certbotcert/live/${DOMAINNAME}/fullchain.pem" -a -f "/certbotcert/live/${DOMAINNAME}/privkey.pem" ]; then
   echo "found certificate and key, linking ssl config"
   ssl="-ssl"
 else
