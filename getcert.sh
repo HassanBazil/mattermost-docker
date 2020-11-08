@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-domains=(us-west-2.console.aws.amazon.com)
+domains=(chat.noctilucent.io)
 rsa_key_size=4096
 data_path="./volumes/web/cert"
 email="" # Adding a valid address is strongly recommended
@@ -40,3 +40,6 @@ docker-compose run --rm --entrypoint "\
     --agree-tos \
     --force-renewal" certbot
 echo
+
+cp ./volumes/certbot/conf/live/${domains[0]}/privkey.pem $data_path/key-no-password.pem
+cp ./volumes/certbot/conf/live/${domains[0]}/fullchain.pem $data_path/cert.pem
